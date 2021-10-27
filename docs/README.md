@@ -16,7 +16,7 @@
 
 ### 屏幕录制命令
 
-```shell script
+```shell
 ffmpeg -f avfoundation -i 1 -r 30 out.yuv
 ```
 
@@ -28,7 +28,7 @@ ffmpeg -f avfoundation -i 1 -r 30 out.yuv
 
 `yuv` 原始数据格式
 
-```shell script
+```shell
 # Record info
 # Output #0, rawvideo, to 'out.yuv':
 #   Metadata:
@@ -39,11 +39,11 @@ ffplay -video_size 3584x2240 -pixel_format uyvy422 out.yuv
 
 #### Mac devices list
 
-```shell script
+```shell
 ffmpeg -f avfoundation -list_devices true -i ""
 ```
 
-```shell script
+```shell
 # output
 [AVFoundation input device @ 0x7fa9e00000c0] AVFoundation video devices:
 [AVFoundation input device @ 0x7fa9e00000c0] [0] FaceTime HD Camera (Built-in)
@@ -55,7 +55,7 @@ ffmpeg -f avfoundation -list_devices true -i ""
 
 ### 音频录制
 
-```shell script
+```shell
 ffmpeg -f avfoundation -i :0 out.wav
 ```
 
@@ -65,7 +65,7 @@ ffmpeg -f avfoundation -i :0 out.wav
 
 ### 多媒体格式转换
 
-```shell script
+```shell
 ffmpeg -i InputVideo.mkv -vcodec copy -acodec copy OutputVideo.mp4
 ```
 
@@ -87,7 +87,7 @@ ffmpeg -i InputVideo.mkv -vcodec copy -acodec copy OutputVideo.mp4
 
 ### delogo 去Logo水印
 
-```shell script
+```shell
 # video size 1920x1080, logo x:1670 y:50 width:176 height:72
 ffmpeg % ffmpeg -i InputVideo.mp4 -vf delogo=x=1670:y=50:w=176:h=72 OutputVideo.mp4
 ```
