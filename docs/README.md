@@ -102,13 +102,15 @@ ffplay -ar 44100 -ac 2 -f s16le out.pcm
 ## 五、裁剪与合并
 
 ```shell
-# 裁剪
+# How to Cut Video Using FFmpeg
 ffmpeg -i input.mp4 -ss 00:00:00 -t 10 out.ts
+# -to hh:mm:ss
+ffmpeg -i input.mp4 -ss 00:03:09 -to 00:19:01 -acodec copy -vcodec copy out.mp4
 ```
 
 ```shell
 # 合并
-ffmpeg -f concat -i inputs.txt out.mp4
+ffmpeg -f concat -i inputs.txt -vcodec copy -acodec copy out.mp4
 ```
 
 ```text
@@ -152,6 +154,6 @@ ffmpeg -i input.mov -vf crop=in_w-200:in_h-200 -c:v libx264 -c:a copy out.mp4
 
 ```shell
 # video's size, width:1920 height:1080
-# logo's postion and size, x:1670 y:50 width:176 height:72
+# logo's position and size, x:1670 y:50 width:176 height:72
 ffmpeg % ffmpeg -i InputVideo.mp4 -vf delogo=x=1670:y=50:w=176:h=72 OutputVideo.mp4
 ```
