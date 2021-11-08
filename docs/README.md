@@ -2,6 +2,8 @@
 
 https://www.ffmpeg.org/
 
+http://ffmpeg.org/ffmpeg-all.html
+
 ## 一、基本信息查询
 
 |-version|查看版本|-formats|查看可用的格式|
@@ -105,7 +107,8 @@ ffplay -ar 44100 -ac 2 -f s16le out.pcm
 # How to Cut Video Using FFmpeg
 ffmpeg -i input.mp4 -ss 00:00:00 -t 10 out.ts
 # -to hh:mm:ss
-ffmpeg -i input.mp4 -ss 00:03:09 -to 00:19:01 -acodec copy -vcodec copy out.mp4
+# ffmpeg -i input.mp4 -ss 00:03:09 -to 00:19:01 -acodec copy -vcodec copy out.mp4
+ffmpeg -i input.mp4 -ss 00:03:09 -to 00:19:01 -c copy out.mp4
 ```
 
 ```shell
@@ -135,6 +138,31 @@ ffmpeg -i image-%3d.jpg OutImage.mp4
 ```
 
 ## 七、直播相关
+
+### 推流
+
+```shell
+ffmpeg -re -i input.mp4 -c copy -f flv rtmp://server/live/streamName
+```
+
+`-c`: 音视频编解码值设置
+
+`-f`: 指定推流数据格式
+
+
+### 拉流
+
+```shell
+ffmpeg -i rtmp://server/live/streamName -c copy dump.flv
+```
+
+### 视频文件下载（m3u8）
+
+```shell
+ffmpeg -i https://domain.com/dir/index.m3u8 out.mp4
+# play
+ffplay https://domain.com/dir/index.m3u8
+```
 
 ## 八、各种滤镜
 
