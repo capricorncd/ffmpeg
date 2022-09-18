@@ -112,6 +112,18 @@ ffmpeg -i input.mp4 -ss 00:03:09 -to 00:19:01 -c copy out.mp4
 ```
 
 ```shell
+# 按5小时一段分割视频
+ffmpeg \
+  -i input.mp4 \
+  -c copy \
+  -map 0 \
+  -segment_time 05:00:00 \
+  -f segment \
+  -reset_timestamps 1 \
+  output%03d.mp4
+```
+
+```shell
 # 合并
 ffmpeg -f concat -i inputs.txt -vcodec copy -acodec copy out.mp4
 ```
@@ -174,7 +186,7 @@ ffmpeg -i input.mov -vf crop=in_w-200:in_h-200 -c:v libx264 -c:a copy out.mp4
 
 `-vf`: 视频滤镜 crop
 
-`crop`: crop=out_w:out_h:x:y
+`crop`: `crop=out_w:out_h:x:y`
 
 `in_w-200`: 视频宽度`减去`200
 
