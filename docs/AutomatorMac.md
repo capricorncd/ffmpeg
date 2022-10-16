@@ -17,6 +17,8 @@ do
 done
 ```
 
+[file](../files/Automator/)
+
 ### 2x mp3
 
 ```shell
@@ -31,6 +33,8 @@ do
   /usr/local/Cellar/ffmpeg/5.0/bin/ffmpeg -i "$f" -af atempo=2.0 "$fpath"/mp3-2x/${fname%.*}.mp3
 done
 ```
+
+[file](../files/Automator/)
 
 ### FlvToMp4
 
@@ -47,6 +51,8 @@ do
 done
 ```
 
+[file](../files/Automator/)
+
 ### toAAC
 
 ```shell
@@ -61,3 +67,5 @@ do
   /usr/local/Cellar/ffmpeg/5.0/bin/ffmpeg -i "$f" -c copy "$fpath"/audio/${fname%.*}.aac
 done
 ```
+
+[file](../files/Automator/)
