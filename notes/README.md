@@ -107,6 +107,8 @@ ffplay -ar 44100 -ac 2 -f s16le out.pcm
 
 ## 五、裁剪与合并
 
+### 裁剪
+
 ```shell
 # How to Cut Video Using FFmpeg
 ffmpeg -i input.mp4 -ss 00:00:00 -t 10 out.ts
@@ -127,6 +129,7 @@ ffmpeg \
   output%03d.mp4
 ```
 
+### 合并
 ```shell
 # 合并
 ffmpeg -f concat -i inputs.txt -vcodec copy -acodec copy out.mp4
@@ -145,6 +148,16 @@ Error: `[concat @ 0x0000000] Unsafe file name someFileName`
 # -safe 0
 ffmpeg -f concat -safe 0 -i inputs.txt -vcodec copy -acodec copy out.mp4
 ```
+
+#### Concat protocol
+
+https://trac.ffmpeg.org/wiki/Concatenate#protocol
+
+```shell
+ffmpeg -i "concat:input1.ts|input2.ts|input3.ts" -c copy output.ts
+```
+
+
 
 ## 六、图片/视频互转
 
