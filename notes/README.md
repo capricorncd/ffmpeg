@@ -147,6 +147,8 @@ Error: `[concat @ 0x0000000] Unsafe file name someFileName`
 ```shell
 # -safe 0
 ffmpeg -f concat -safe 0 -i inputs.txt -vcodec copy -acodec copy out.mp4
+# or
+ffmpeg -f concat -safe 0 -i inputs.txt -c copy out.mp4
 ```
 
 #### Concat protocol
