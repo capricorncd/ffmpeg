@@ -111,6 +111,7 @@ ffplay -ar 44100 -ac 2 -f s16le out.pcm
 
 ```shell
 # How to Cut Video Using FFmpeg
+ffmpeg -i input.mp4 -ss 00:00:00 -t 10:00:00 -c copy out.mp4
 ffmpeg -i input.mp4 -ss 00:00:00 -t 10 out.ts
 # -to hh:mm:ss
 # ffmpeg -i input.mp4 -ss 00:03:09 -to 00:19:01 -acodec copy -vcodec copy out.mp4
